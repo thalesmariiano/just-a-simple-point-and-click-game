@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+/* ANIMATION.CSS */
+.animate__animated.animate__fadeOut {
+	--animate-duration: .3s;
+}
+
+.animate__animated.animate__fadeIn {
+	--animate-duration: .4s;
+}
+
+.animate__animated.animate__zoomIn {
+	--animate-duration: .3s;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Just a Simple Point and Click Game</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="images/pacg_icon.png" />
+		<meta name="description" content="Um simples jogo point and click.">
+  		<meta name="keywords" content="Jogos, Offline, Point And Click">
+  		<meta name="author" content="Thales Mariano">
+
+  		<!-- ARQUIVOS STYLES -->
+		<link rel="stylesheet" href="estilos/styles.css">
+		<link rel="stylesheet" href="estilos/animationConfig.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+		<!-- =============== -->
+
+		<!-- FONTS -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+		<!-- ===== -->
+
+		<script src="scripts/pre_load.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1 id="title" title="Just a Simple Point And Click Game">JSPCG</h1>
+		</header>
+
+		<div id="main">	
+			<div id="container">
+				
+				<div id="containerHeader" class="animate__animated">
+					<span id="score" class="animate__animated noCopy">score: 0</span>
+					<p id="cubeCount" class="noCopy">10</p>
+					<p id="gameTimer" class="animate__animated noCopy">0s</p>
+					<button id="pause" class="noCopy" onClick="pause()">Pausar</button>
+				</div>
+
+				<div id="canvas">
+
+				</div>
+				
+				<div class="containerDefault animate__animated" id="playContainer">
+					<div class="menu">
+						<h2 id="gameName">Point And Click</h2>
+						<button class="menuBtns" id="play" onClick="iniciar()">Jogar</button>
+						<button class="menuBtns" id="levels">Modos de jogo</button>
+						<button class="menuBtns" id="gameConfig">Opções</button>
+					</div>
+					<p id="recorde">Seu recorde: 0</p>
+				</div>
+
+				<div class="containerDefault animate__animated" id="stopContainer">
+					<h2 class="containerTitles">Jogo pausado</h2>
+					<div class="menu">
+						<button class="menuBtns" id="resume" onClick="resume()">Resumir</button>
+						<button class="menuBtns" id="backToMenu" onClick="backToMenu()">Voltar ao menu</button>
+					</div>
+				</div>
+
+				<div class="containerDefault animate__animated" id="loseContainer">
+					<h2 class="containerTitles">Você perdeu!</h2>
+					<div class="menu">
+						<button class="menuBtns" id="restart" onClick="restart()">Reiniciar</button>
+						<button class="menuBtns" id="backToMenu" onClick="backToMenu()">Voltar ao menu</button>
+					</div>
+				</div>
+
+				<div class="containerDefault animate__animated" id="winContainer">
+					<h2 class="containerTitles">Você ganhou!</h2>
+					<div class="menu">
+						<button class="menuBtns" id="nextLevel" onClick="nextLevel()">Proxima fase</button>
+						<button class="menuBtns" id="restart" onClick="restart()">Reiniciar</button>
+						<button class="menuBtns" id="backToMenu" onClick="backToMenu()">Voltar ao menu</button>
+					</div>
+				</div>
+
+				<div class="containerDefault animate__animated" id="modesContainer">
+					<h2 class="containerTitles">Modos de Jogo</h2>
+					<div id="gModes">
+						<div title="Point And Click" class="modesItems" onClick="gameModes(1)"><img src="images/pacg_icon.png"/></div>
+						<div title="Random Blocks" class="modesItems" onClick="gameModes(2)"><img src="images/rcg_icon.png"/></div>
+						<div title="Run cube, run" class="modesItems" id="off" onClick="gameModes(3)">?</div>
+					</div>
+					<button class="backBtn" id="back">Voltar</button>
+				</div>
+
+				<div class="containerDefault animate__animated" id="optionsContainer">
+					<h2 class="containerTitles">Opções</h2>
+					<div class="optionsItem">
+						<p class="optionText">Movimento automatico do cubo</p>
+						<div class="checkBoxContainer">
+							<div class="checkBoxBack"><div class="checkBoxBubble"></div></div>
+						</div>
+					</div>
+					<button class="backBtn" id="back2">Voltar</button>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- SCRIPTS -->
+		<script src="scripts/main.js"></script>
+		<script src="scripts/games_modes.js"></script>
+		<script src="scripts/cubeAPI.js"></script>
+		<!-- ======= -->
+	</body>
+</html>

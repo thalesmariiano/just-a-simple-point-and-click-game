@@ -1,0 +1,330 @@
+@charset "UTF-8";
+
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	background-color: #272727;
+}
+
+header {
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#title {
+	font: 2rem serif;
+	color: white;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+	user-select: none;
+}
+
+#title::after {
+	content: "| v1.9 | @somenteumcara";
+	font: 14px arial;
+	color: grey;
+	margin-left: 5px;
+}
+
+#main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 80vh;
+}
+
+#container {
+	width: 90%;
+	height: 525px;
+	border: 1px solid white;
+	background-color: #242424;
+	position: relative;
+	transition: all .2s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#canvas {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Resposividade do site */
+@media screen and (max-width: 360px ){
+	#canvas {
+		width: 100%;
+	}
+	#gameName {
+		font-size: 2rem;
+	}
+}
+
+.containerDefault {
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.2);
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	z-index: 999;
+}
+
+.containerTitles {
+	color: #b0b0b0;
+	font-family: 'Bebas Neue';
+	font-size: 2.8em;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+#playContainer{display: flex}
+
+#gameName {
+	color: #b0b0b0;
+	font-size: 3.3rem;
+	font-family: 'Bebas Neue';
+	margin-bottom: 20px;
+	text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.menu {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 300px;
+	padding: 5px;
+}
+
+.menuBtns {
+	outline: none;
+	width: 210px;
+	padding: 7px 0px;
+	background-color: #dbdbdb;
+	color: black;
+	border: none;
+	margin: 5px;
+	cursor: pointer;
+	position: relative;
+	transition: all .2s;
+}
+
+.menuBtns:hover {
+	color: white;
+	background-color: #454545;
+	width: 230px;
+}
+
+
+#stopContainer{display: none; background-color: rgba(0, 0, 0, 0.4);}
+#loseContainer{display: none; background-color: rgba(0, 0, 0, 0.4);}
+#winContainer{display: none; background-color: rgba(0, 0, 0, 0.4);}
+
+#modesContainer{display: none}
+
+@media screen and (max-width: 420px ){
+	#gModes {
+		flex-direction: column;
+	}
+}
+
+#gModes {
+	padding: 5px;
+	display: flex;
+}
+
+.modesItems {
+	width: 55px;
+	height: 55px;
+	border: 2px solid white;
+	margin: 5px;
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.1);
+	transition: all .2s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.modesItems:hover {
+	transform: scale(1.1);
+}
+
+.modesItems:active {
+	border: 2px solid green;
+}
+
+#off {
+	opacity: .4;
+	pointer-events: none;
+	color: white;
+	font: 1.5rem arial;
+}
+
+#optionsContainer{display: none;}
+
+.optionText {
+	color: white;
+	margin-bottom: 10px;
+	font: 15px arial;
+}
+
+#nextLevel {
+	color: white;
+	background-color: darkgreen;
+	border: none;
+	position: relative;
+}
+
+#nextLevel:hover {
+	background-color: green;
+}
+
+.backBtn{
+	font-size: 16px;
+	outline: none;
+	color: black;
+	padding: 7px 25px;
+	background: #dbdbdb;
+	border: none;
+	margin-top: 50px;
+	cursor: pointer;
+	transition: all .2s;
+}
+
+.backBtn:hover {
+	background-color: #454545;
+	color: white;
+}
+
+#recorde {
+	font: 17px monospace;
+	color: grey;
+}
+
+.cube {
+	width: 0px;
+	height: 0px;
+	transform: rotateZ(360deg);
+	background-color: white;
+	border: 1px solid #262626;
+	position: absolute;
+	cursor: pointer;
+	cursor: pointer;
+	color: white;
+	font: 30pt arial;
+	font-weight: 900;
+	opacity: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-shadow: 3px 0px grey;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+	user-select: none;
+}
+
+#containerHeader {
+	width: 100%;
+	display: none;
+	justify-content: space-between;
+	transition: opacity .5s;
+	z-index: 999;
+}
+
+.noCopy {
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+	user-select: none;
+}
+
+#score {
+	font: 19px monospace;
+	color: white;
+	margin: 5px;
+}
+
+#pause {
+	color: black;
+	padding: 5px 10px;
+	background-color: #dbdbdb;
+	border: none;
+	cursor: pointer;
+	transition: all .2s;
+	outline: none;
+	margin: 5px;
+}
+
+#pause:hover {
+	background-color: #454545;
+	color: white;
+}
+
+#cubeCount {
+	font: 1.3rem arial;
+	color: white;
+	pointer-events: none;
+	margin: 5px;
+	opacity: 0.7;
+	position: relative;
+	display: none;
+}
+
+#cubeCount::after {
+	content: " ";
+	background-color: white;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 4px;
+	margin-left: 5px;
+	border: 1x solid #262626;
+}
+
+#gameTimer {
+	color: white;
+	font: 17px arial;
+	transition: all .2s;
+	display: none;
+	margin: 5px;
+}
+
+.checkBoxBack {
+	background-color: grey;
+	width: 60px;
+	height: 20px;
+	position: relative;
+	cursor: pointer;
+	box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.7);
+	border: 2px solid #151515;
+}
+
+.checkBoxBubble {
+	background-color: darkred;
+	width: 30px;
+	height: 20px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	transition: all .2s;
+}
+
+.checkBox {
+	left: 30px;
+	background-color: green;
+}
